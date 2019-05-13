@@ -831,6 +831,19 @@ let tests =
           )
         )
       />
+      <div
+        className=Css.(
+          style(
+            box
+            @ [
+              background(url("./img-29.jpg")),
+              backgroundRepeat(noRepeat),
+              backgroundPosition(pct(50.), pct(50.)),
+              backgroundSize(size(pct(75.), auto)),
+            ],
+          )
+        )
+      />
     </Section>
     <Section name="cursor">
       <div className=Css.(style(box @ [cursor(`auto)]))>
