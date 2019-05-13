@@ -275,7 +275,8 @@ module Calc: {
   let (+): (length, length) => [> length];
 };
 
-let size: (length, length) => [> | `size(length, length)];
+let size: ([< length | `auto] as 'bgLength, 'bgLength) => [> | `size('bgLength, 'bgLength)];
+
 let resize:
   [
     | `none
@@ -701,7 +702,13 @@ let backgroundOrigin: [ | `borderBox | `contentBox | `paddingBox] => rule;
 let backgroundPosition: ([ length], [ length]) => rule;
 let backgroundRepeat: [ | `repeat | `noRepeat | `repeatX | `repeatY] => rule;
 let backgroundSize:
-  [ | `size(length, length) | `auto | `cover | `contain] => rule;
+  [
+    | `size([< length | `auto] as 'bgLength, 'bgLength)
+    | `auto
+    | `cover
+    | `contain
+  ] =>
+  rule;
 
 let cursor:
   [

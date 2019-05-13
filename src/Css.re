@@ -1352,7 +1352,20 @@ let backgroundSize = x =>
   d(
     "backgroundSize",
     switch (x) {
-    | `size(x, y) => string_of_length(x) ++ " " ++ string_of_length(y)
+    | `size(x, y) =>
+      (
+        switch (x) {
+        | `auto => "auto"
+        | #length as l => string_of_length(l)
+        }
+      )
+      ++ " "
+      ++ (
+        switch (y) {
+        | `auto => "auto"
+        | #length as l => string_of_length(l)
+        }
+      )
     | `auto => "auto"
     | `cover => "cover"
     | `contain => "contain"
